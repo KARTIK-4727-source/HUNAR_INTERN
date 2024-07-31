@@ -1,0 +1,39 @@
+class Quiz:
+    def __init__(self, questions):
+        self.questions = questions
+        self.score = 0
+
+    def run_quiz(self):
+        for question, (options, correct_answer) in self.questions.items():
+            print(question)
+            for i, option in enumerate(options, 1):
+                print(f"{i}. {option}")
+            
+            answer = input("Your answer (enter the option number): ")
+            
+            if options[int(answer) - 1].lower() == correct_answer.lower():
+                print("Correct!\n")
+                self.score += 1
+            else:
+                print(f"Incorrect! The correct answer was: {correct_answer}\n")
+                self.score =-1
+        
+        print(f"Your final score is {self.score} out of {len(self.questions)}")
+        
+
+def main():
+    questions = {
+        "Who scored 50 centuries in ODI?": (["Virat Kohli", "Sachin Tendulkar", "Rohit sharma", "Rahul 1Dravid"], "Virat Kohli"),
+        "C programming language invented in ?": (["1974", "1971", "1972", "1977"], "1972"),
+        "which is the oldest language in the world?": (["Sanskrit", "Tamil", "Chinese", "Hindi"], "Sanskrit "),
+        "What is the value of Pi up to two decimal places?": (["3.12", "3.14", "3.16", "3.18"], "3.14"),
+        "In which year did the first modern Olympic Games take place?": (["1896", "1900", "1904", "1912"], "1896"),
+    }
+    
+    quiz = Quiz(questions)
+    quiz.run_quiz()
+
+if __name__ == "__main__":
+    main()
+
+#for the answers , choose the option number
