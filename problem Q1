@@ -1,0 +1,12 @@
+# Prompt the user for their first and last names
+first_name = input("Enter your first name (≤ 10 characters): ").strip()
+last_name = input("Enter your last name (≤ 10 characters): ").strip()
+
+# Check if the input lengths are within the constraints
+if len(first_name) > 10 or len(last_name) > 10:
+    print("Error: First name and last name must each be 10 characters or fewer.")
+else:
+    # Generate the greeting message
+    greeting_message = f"Hello {first_name} {last_name}! You just developed into python."
+    # Print the generated greeting message
+    print(greeting_message)
