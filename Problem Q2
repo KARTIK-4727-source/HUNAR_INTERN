@@ -1,0 +1,32 @@
+def runner_up_score(scores):
+  """Finds the runner-up score in a list of scores.
+
+  Args:
+    scores: A list of integer scores.
+
+  Returns:
+    The runner-up score, or None if the list is empty or has only one element.
+  """
+
+  if not scores:
+    return None
+
+  # Remove duplicates to ensure accurate runner-up calculation
+  unique_scores = list(set(scores))
+
+  # Sort the scores in descending order
+  unique_scores.sort(reverse=True)
+
+  # Return the second highest score (runner-up)
+  return unique_scores[1] if len(unique_scores) > 1 else None
+
+if _name_ == "_main_":
+  n = int(input())
+  scores = list(map(int, input().split()))
+
+  runner_up = runner_up_score(scores)
+
+  if runner_up is not None:
+    print("Runner-Up Score:", runner_up)
+  else:
+    print("No runner-up score found.")
